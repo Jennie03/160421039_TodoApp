@@ -47,7 +47,8 @@ class TodoListFragment : Fragment() {
             if (it.isEmpty()) {
                 binding.recViewTodo?.visibility = View.GONE
                 binding.txtError.setText("Your todo is still empty. Start creating it now.")
-            } else {
+            }
+            else {
                 binding.recViewTodo?.visibility = View.VISIBLE
             }
 

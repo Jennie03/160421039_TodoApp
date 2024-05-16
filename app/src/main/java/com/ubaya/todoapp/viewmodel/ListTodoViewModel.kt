@@ -26,16 +26,13 @@ class ListTodoViewModel(application: Application)
     fun refresh() {
         loadingLD.value = true
         todoLoadErrorLD.value = false
-            viewModelScope.launch {
+        launch {
             val db = TodoDatabase.buildDatabase(
                 getApplication()
             )
 
-            val todos = withContext(Dispatchers.IO) {
-                db.todoDao().selectAllTodo()
-            }
-            todoLD.value = todos
-            loadingLD.value = false
+            todoLD.postValue(db.todoDao().selectAllTodo())
+            loadingLD.postValue(false)
         }
     }
 
