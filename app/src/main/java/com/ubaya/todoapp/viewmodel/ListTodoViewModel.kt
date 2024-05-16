@@ -43,7 +43,7 @@ class ListTodoViewModel(application: Application)
 //                getApplication()
 //            )
             val db = buildDb(getApplication())
-            db.todoDao().deleteTodo(todo)
+            db.todoDao().update_done(todo.uuid)
 
             todoLD.postValue(db.todoDao().selectAllTodo())
         }
