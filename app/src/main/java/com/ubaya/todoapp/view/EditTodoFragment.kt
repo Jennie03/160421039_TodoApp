@@ -28,7 +28,8 @@ class EditTodoFragment : Fragment(), TodoSaveChangesClick, RadioClick {
     }
 
     override fun onRadioClick(v: View, priority: Int, obj: Todo) {
-        obj.priority = priority
+        binding.todo!!.priority =
+            v.tag.toString().toInt()
     }
 
     override fun onCreateView(
